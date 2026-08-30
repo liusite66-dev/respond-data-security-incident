@@ -1,0 +1,8 @@
+{
+  "incident_type": "数据泄露",
+  "discovered_date": "2024-06-01 10:00",
+  "affected_users": 1500000,
+  "data_categories": ["个人信息", "敏感个人信息"],
+  "cross_border": true,
+  "controller_name": "示例科技有限公司"
+}
