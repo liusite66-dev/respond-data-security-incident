@@ -1,0 +1,158 @@
+{
+  "version": "2.0.0",
+  "updated_date": "2026-08-30",
+  "source_note": "分级与报告规则依据《网络安全法》《数据安全法》《个人信息保护法》第57条、《网络数据安全管理条例》及《国家网络安全事件应急预案》《网络安全事件报告管理办法》等整理。级别划分与时限为示例口径，须按最新法规、行业主管部门与网信部门要求核对(部分行业要求1小时/2小时/4小时初报)。",
+  "disclaimer": "本规则为自检辅助，不构成法律意见，最终以监管口径为准。",
+  "severity_rules": {
+    "large_scale_personal_info_threshold": 1000000,
+    "notify_individual_affected_threshold": 1
+  },
+  "report_obligation": {
+    "important_data": {
+      "field": "data_categories",
+      "contains": "重要数据",
+      "must_report_authority": true,
+      "authority": "有关主管部门 / 设区的市级以上网信部门",
+      "report_deadline_hours": 24,
+      "deadline_desc": "涉重要数据的网络安全事件，知悉后不迟于24小时内向主管部门与网信部门报告(示例口径，部分情形要求更短)。",
+      "report_channel": "行业主管部门报告渠道、网信部门网络安全事件报告平台或书面报告",
+      "required_contents": [
+        "事件发生的单位名称及基本情况",
+        "事件发现或发生的时间、地点、类型",
+        "涉及重要数据的类别、数量与影响范围",
+        "已采取的应急处置措施和拟采取的措施",
+        "初步原因分析与危害评估",
+        "联系人与联系方式"
+      ]
+    },
+    "core_data": {
+      "field": "data_categories",
+      "contains": "核心数据",
+      "must_report_authority": true,
+      "authority": "有关主管部门 / 国家数据安全工作协调机制指定部门",
+      "report_deadline_hours": 24,
+      "deadline_desc": "涉国家核心数据的安全事件，应立即(知悉后不迟于24小时，情况紧急应即时)报告主管部门(示例口径)。",
+      "report_channel": "有关主管部门指定的紧急报告渠道",
+      "required_contents": [
+        "事件基本情况与涉及核心数据说明",
+        "已发现的影响与潜在国家安全风险",
+        "即时处置与管控措施",
+        "联系人与联系方式"
+      ]
+    },
+    "large_scale_personal_info": {
+      "field": "affected_users",
+      "operator": ">=",
+      "threshold_key": "large_scale_personal_info_threshold",
+      "must_report_authority": true,
+      "authority": "履行个人信息保护职责的部门 / 网信部门",
+      "report_deadline_hours": 24,
+      "deadline_desc": "影响个人信息主体达大规模阈值的重大事件，知悉后不迟于24小时内报告(示例口径)。",
+      "report_channel": "网信部门个人信息保护事件报告渠道",
+      "required_contents": [
+        "泄露、篡改、丢失的个人信息种类、数量、涉及主体数量",
+        "事件可能造成的危害",
+        "已采取的补救措施及可为个人减轻危害的措施",
+        "个人可采取的自我保护措施",
+        "处理者联系方式"
+      ]
+    },
+    "sensitive_personal_info": {
+      "field": "data_categories",
+      "contains": "敏感个人信息",
+      "must_report_authority": true,
+      "authority": "履行个人信息保护职责的部门",
+      "report_deadline_hours": 72,
+      "deadline_desc": "涉敏感个人信息(生物识别、宗教信仰、特定身份、医疗健康、金融账户、行踪轨迹及不满十四周岁未成年人信息等)的事件，知悉后不迟于72小时内报告(示例口径)。",
+      "report_channel": "网信部门个人信息保护事件报告渠道",
+      "required_contents": [
+        "涉及的敏感个人信息类别与主体数量",
+        "事件经过与可能造成的权益损害",
+        "已采取及拟采取的补救措施",
+        "对个人的保护建议与联系方式"
+      ]
+    },
+    "general_personal_info": {
+      "field": "data_categories",
+      "contains": "个人信息",
+      "must_report_authority": false,
+      "authority": "履行个人信息保护职责的部门(视影响情况)",
+      "report_deadline_hours": 72,
+      "deadline_desc": "涉一般个人信息且规模有限的事件，视危害情况按主管部门要求报告，并留存处置记录(示例口径)。",
+      "report_channel": "内部合规流程，必要时报网信部门",
+      "required_contents": [
+        "事件基本情况与涉及个人信息范围",
+        "已采取的处置与补救措施"
+      ]
+    },
+    "general": {
+      "must_report_authority": false,
+      "authority": "视情况向主管部门报告",
+      "report_deadline_hours": 72,
+      "deadline_desc": "一般事件按内部流程处置并留存记录，必要时报告(示例口径)。",
+      "report_channel": "内部应急处置流程",
+      "required_contents": [
+        "事件基本情况",
+        "内部处置与整改记录"
+      ]
+    }
+  },
+  "notify_individual_rule": {
+    "condition": "发生或可能发生个人信息泄露、篡改、丢失的，个人信息处理者应当立即采取补救措施并通知履行个人信息保护职责的部门和个人(《个人信息保护法》第57条)。",
+    "exemption": "处理者采取措施能够有效避免信息泄露、篡改、丢失造成危害的，可以不通知个人；但履行个人信息保护职责的部门认为可能造成危害的，有权要求处理者通知个人。",
+    "notify_deadline_hours": 72,
+    "deadline_desc": "应在合理期限内(示例:知悉后72小时内)以邮件、信函、电话、推送等方式告知受影响个人；无法逐一告知的，应采取公告等方式合理有效发布。",
+    "required_contents": [
+      "发生或可能发生泄露、篡改、丢失的信息种类、原因和可能造成的危害",
+      "处理者已采取的补救措施",
+      "个人可以采取的减轻危害的措施(如改密、换卡、防诈提示)",
+      "处理者的联系方式"
+    ]
+  },
+  "severity_levels": ["特别重大", "重大", "较大", "一般"],
+  "severity_matrix": {
+    "特别重大": {
+      "description": "涉及国家核心数据、或造成大量重要数据/超大规模个人信息泄露、或严重危害国家安全、社会秩序、公共利益的事件。",
+      "criteria": [
+        "涉及核心数据泄露、损毁或被非法获取",
+        "重要数据大规模泄露且影响国家安全或公共利益",
+        "特别重大范围的个人信息(如上千万级)泄露并造成严重社会影响",
+        "关键信息基础设施大面积瘫痪"
+      ],
+      "example_report_deadline_hours": 24
+    },
+    "重大": {
+      "description": "涉重要数据、或影响个人信息主体达大规模阈值(示例100万人)、或造成较严重危害的事件。",
+      "criteria": [
+        "涉及重要数据泄露、篡改或丢失",
+        "受影响个人信息主体达到大规模阈值(示例≥100万人)",
+        "敏感个人信息大规模泄露",
+        "是否跨境、是否CIIO作为从重情节考量"
+      ],
+      "example_report_deadline_hours": 24
+    },
+    "较大": {
+      "description": "涉敏感个人信息但规模有限，或涉个人信息且已造成一定影响的事件。",
+      "criteria": [
+        "涉及敏感个人信息但主体数量有限",
+        "涉个人信息且造成一定财产或权益影响",
+        "局部业务系统受影响"
+      ],
+      "example_report_deadline_hours": 72
+    },
+    "一般": {
+      "description": "未涉敏感/重要/核心数据且影响范围有限、危害较小的事件。",
+      "criteria": [
+        "仅涉一般个人信息且规模小",
+        "无实质损害或损害可控",
+        "可通过内部流程快速处置"
+      ],
+      "example_report_deadline_hours": 72
+    }
+  },
+  "aggravating_factors": {
+    "cross_border": "事件涉及数据出境或境外接收方的，可能提升事件级别并触发额外报告义务。",
+    "is_ciio": "关键信息基础设施运营者(CIIO)发生的事件，报告义务与时限从严。",
+    "data_type": "涉及核心数据>重要数据>敏感个人信息>一般个人信息，数据类型越敏感级别越高、时限越短。"
+  }
+}
