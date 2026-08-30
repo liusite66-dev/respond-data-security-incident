@@ -1,0 +1,42 @@
+{
+  "rules_version": "1.0.0",
+  "rules_updated_date": "2026-08-30",
+  "generated_at": "2026-08-30 19:34:01",
+  "severity": "重大",
+  "must_report_authority": true,
+  "report_authorities": [
+    "履行个人信息保护职责的部门",
+    "履行个人信息保护职责的部门 / 网信部门"
+  ],
+  "report_deadline_hours": 24,
+  "report_deadline": "2024-06-02 10:00:00",
+  "report_deadline_desc": "重大事件知悉后不迟于24小时内报告(示例口径)。",
+  "notify_individual": true,
+  "notify_deadline": "2024-06-04 10:00:00",
+  "notify_deadline_desc": "应在合理期限内(示例:知悉后72小时内)告知受影响个人。",
+  "decision_trace": [
+    {
+      "rule": "important_data",
+      "matched": false,
+      "basis": "未涉重要数据"
+    },
+    {
+      "rule": "large_scale_personal_info",
+      "matched": true,
+      "basis": "affected_users=1500000 >= 1000000",
+      "deadline_hours": 24
+    },
+    {
+      "rule": "sensitive_personal_info",
+      "matched": true,
+      "basis": "data_categories 含‘敏感个人信息’",
+      "deadline_hours": 72
+    },
+    {
+      "rule": "notify_individual",
+      "matched": true,
+      "basis": "涉个人信息且受影响人数>=1"
+    }
+  ],
+  "disclaimer": "本规则为自检辅助，不构成法律意见，最终以监管口径为准。"
+}
